@@ -71,3 +71,16 @@ function renderMusic(index) {
     durationMusic.textContent = secondsToMinutes(Math.floor(music.duration));
   });
 }
+
+function playMusic() {
+  music.play();
+  document.querySelector(".pause").style.display = "block";
+  document.querySelector(".play").style.display = "none";
+}
+
+function pauseMusic() {
+  music.pause();
+  document.querySelector(".pause").style.display = "none";
+  document.querySelector(".play").style.display = "block";
+}
+
