@@ -84,3 +84,15 @@ function pauseMusic() {
   document.querySelector(".play").style.display = "block";
 }
 
+function updateProgressBar() {
+  let barra = document.querySelector("progress");
+  barra.style.width =
+    Math.floor((music.currentTime / music.duration) * 100) + "%";
+
+  let tempoDecorrido = document.querySelector(".current-time");
+
+  tempoDecorrido.textContent = secondsToMinutes(
+    Math.floor(music.currentTime)
+  );
+}
+
