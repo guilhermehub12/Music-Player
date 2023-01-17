@@ -96,3 +96,12 @@ function updateProgressBar() {
   );
 }
 
+function secondsToMinutes(seconds) {
+  let campoMinutos = Math.floor(seconds / 60);
+  let campoSegundos = seconds % 60;
+  if (campoSegundos < 10) {
+    campoSegundos = "0" + campoSegundos;
+  }
+  
+  return campoMinutos + ":" + campoSegundos;
+}
