@@ -25,3 +25,33 @@ let musics = [
   },
 ];
 
+let indexMusic = 0;
+
+let music = document.querySelector("audio");
+let durationMusic = document.querySelector(".total-time");
+let coverImage = document.querySelector(".cover");
+let musicName = document.querySelector(".info h1");
+let artist = document.querySelector(".info p");
+
+
+// Eventos
+document.querySelector(".play").addEventListener("click", playMusic);
+
+document.querySelector(".pause").addEventListener("click", pauseMusic);
+
+
+
+//Evento + Função
+document.querySelector(".prev").addEventListener("click", () => {
+  indexMusic--;
+  if (indexMusic < 0) {
+    indexMusic = musics.length;
+  }
+});
+
+document.querySelector(".next").addEventListener("click", () => {
+  indexMusic++;
+  if (indexMusic > musics.length) {
+    indexMusic = 0;
+  }
+});
