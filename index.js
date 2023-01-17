@@ -33,12 +33,14 @@ let coverImage = document.querySelector(".cover");
 let musicName = document.querySelector(".info h1");
 let artist = document.querySelector(".info p");
 
+renderMusic(indexMusic);
 
 // Eventos
 document.querySelector(".play").addEventListener("click", playMusic);
 
 document.querySelector(".pause").addEventListener("click", pauseMusic);
 
+music.addEventListener("timeupdate", updateProgressBar);
 
 
 //Evento + Função
@@ -47,6 +49,7 @@ document.querySelector(".prev").addEventListener("click", () => {
   if (indexMusic < 0) {
     indexMusic = musics.length;
   }
+  renderMusic(indexMusic);
 });
 
 document.querySelector(".next").addEventListener("click", () => {
@@ -54,4 +57,17 @@ document.querySelector(".next").addEventListener("click", () => {
   if (indexMusic > musics.length) {
     indexMusic = 0;
   }
+  renderMusic(indexMusic);
+  music.play();
 });
+
+// Funções
+function renderMusic(index) {
+  music.setAttribute("src", musics[index].src);
+  music.addEventListener("loadeddata", () => {
+    musicName.textContent = musics[index].title;
+    artist.textContent = musics[index].artist;
+    coverImage.src = musics[index].img;
+    durationMusic.textContent = secondsToMinutes(Math.floor(music.duration));
+  });
+}
