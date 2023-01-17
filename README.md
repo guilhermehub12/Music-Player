@@ -1,5 +1,5 @@
 # Desafio Bora Codar - RocketSeat
-<a src='https://guilhermehub12.github.io/Music-Player/'>Preview Here</a>
+[Preview - Click Here](https://guilhermehub12.github.io/Music-Player/)
 ## Player de Música
 <img src='assets/preview.jpeg' />
 
